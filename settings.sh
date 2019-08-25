@@ -78,14 +78,14 @@ TIMEZONE="Asia/Shanghai"
 
 # Root password, in shadow format.
 # The following is for "defaultpassword" (without quotes) with a random salt.
-ROOT_SHADOW="$6$BpQgnLrExfzaDUu0$Jyrfiuu5gJ6CFtTu0q8K90020a.ovl.yqu141PtH7KeixnxI.wI7VM69rTpOI5FtAzbYdqpzc.HizfEN5RJXK."
+ROOT_SHADOW='$6$BpQgnLrExfzaDUu0$Jyrfiuu5gJ6CFtTu0q8K90020a.ovl.yqu141PtH7KeixnxI.wI7VM69rTpOI5FtAzbYdqpzc.HizfEN5RJXK.'
 
 # Administrators to be added to the target.  At least one required.
 # Users denoted here will be added to the "wheel" group.
 # The following denotes a single "admin" user with "defaultadminpassword" as password.
 # Add more admins by adding more "user:shadow" lines.
 WHEEL_USERS=(
-"admin:$6$yJHv0ncuhVb5MBfa$77JnZyKEBc8ndhUMTZJ0MKzzwkDJ2NWXwn2billsbgAVBNgFPasL6YvllBBa7eDzP5rZ7dm3WWxMtdmd3XccD."
+'admin:$6$yJHv0ncuhVb5MBfa$77JnZyKEBc8ndhUMTZJ0MKzzwkDJ2NWXwn2billsbgAVBNgFPasL6YvllBBa7eDzP5rZ7dm3WWxMtdmd3XccD.'
 )
 
 # Non-admin users to be added to the target.  Same syntax as admin specification.
