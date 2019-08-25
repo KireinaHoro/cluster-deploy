@@ -20,6 +20,8 @@ cd /usr/local/cluster-deploy
 source util.sh
 source prepare_partition.sh
 
+export PATH="/sbin:/bin:/usr/sbin:/usr/bin"
+
 check_config
 export_paths
 
