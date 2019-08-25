@@ -78,12 +78,12 @@ do_create_pool() {
 
         stripe)
             info "Creating stripe ZFS pool..."
-            assert zpool create "${POOL_NAME}" ${DATA_DISKS[@]} ${ZPOOL_OPTIONS}
+            assert zpool create -f "${POOL_NAME}" ${DATA_DISKS[@]} ${ZPOOL_OPTIONS}
             ;;
 
         *)
             info "Creating ${RAID_SCHEME} ZFS pool..."
-            assert zpool create "${POOL_NAME}" ${RAID_SCHEME} ${DATA_DISKS[@]} ${ZPOOL_OPTIONS}
+            assert zpool create -f "${POOL_NAME}" ${RAID_SCHEME} ${DATA_DISKS[@]} ${ZPOOL_OPTIONS}
             ;;
     esac
 
