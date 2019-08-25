@@ -84,6 +84,7 @@ if (( ${#NORMAL_USERS[@]} )); then
 fi
 
 # Update grub config.
+sed -i -e "s@ \(rd.lvm.lv=\)[^ ]*@@g" -e "s@ rhgb quiet@ rd.lvm.lv=${VG}/root@g" /etc/default/grub
 assert grub2-mkconfig -o /boot/efi/EFI/centos/grub.cfg
 
 # Register first-boot hooks.
