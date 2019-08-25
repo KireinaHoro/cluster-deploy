@@ -10,6 +10,15 @@ This project aims to help ease deployment of compute clusters in which nodes are
 - Add admin and normal users (with provided `username:shadow`)
 - Update GRUB config file
 
+## Current defects
+
+The following two problems currently prevent a directly bootable target, but rather easy to fix:
+
+- SELinux contexts may be incorrect for `/etc` if script ran from system that's different from the target image.
+  - Fix by appending `enforcing=0` to kernel commandline at boot first, then do `restorecon`
+- Some modules may be missing with default kernel
+  - Boot with rescue kernel first, then use `dracut` to rebuild initramfs
+
 ## Using the tool
 
 Configurable behaviors can be tuned via editting `settings.sh`.  The whole process is designed to be fully non-interactive for use in unattended environments; make sure to read the configuration file thoroughly before getting started.  To start the tool:
@@ -18,7 +27,11 @@ Configurable behaviors can be tuned via editting `settings.sh`.  The whole proce
 $ sudo ./main.sh
 ```
 
-## Requirements
+## Installation CD
+
+A toolkit for generating bootable CDs (based on `archiso`) can be found [here](https://github.com/KireinaHoro/cluster-deploy-cd).
+
+## Custom environment requirements
 
 Note that the tool assumes a sane environment to run inside, including (but not limited to):
 
@@ -30,8 +43,6 @@ Note that the tool assumes a sane environment to run inside, including (but not 
    - Filesystems: `mkfs.xfs` (for root), `zpool` (for data storage), `xfsrestore` (for unpacking root images)
    - Device discovery: `udevadm`
 - Udev working properly (used to resolve complex drive names for better device identification)
-
-Plans for releasing a suitable bootable environment exist, but no ETA has been scheduled yet.  The script is tested to work on a normal CentOS 7.6 system with the required packages installed.
 
 The tool assumes that the target image to be a systemd-based distribution (`machine-id`) and consist of the following 3 parts:
 
