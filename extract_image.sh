@@ -38,6 +38,9 @@ unpack_images() {
     info "Unpacking boot xfsdump to ${BOOT_MNT_PATH}..."
     assert gzip -cd "${BOOT_IMG}" | assert xfsrestore - "${BOOT_MNT_PATH}"
 
+    info "Mounting ESP to ${BOOT_MNT_PATH}/efi..."
+    assert mount "${ESP_PATH}" "${BOOT_MNT_PATH}/efi"
+
     info "Unpacking root xfsdump to ${ROOT_MNT_PATH}..."
     assert gzip -cd "${ROOT_IMG}" | assert xfsrestore - "${ROOT_MNT_PATH}"
 
