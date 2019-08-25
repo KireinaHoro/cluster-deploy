@@ -50,7 +50,7 @@ check_config() {
 }
 
 check_commands() {
-    local commands=(cp sgdisk pvcreate pvdisplay vgcreate vgdisplay lvcreate lvdisplay mkfs.xfs udevadm mount gzip dd xfsrestore chroot zpool)
+    local commands=(cp sgdisk pvcreate pvdisplay vgcreate vgdisplay lvcreate lvdisplay mkfs.xfs udevadm mount gzip dd sed xfsrestore chroot zpool)
     for cmd in ${commands[@]}; do
         command -v ${cmd} &>/dev/null || die "Required command ${cmd} not found."
     done

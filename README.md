@@ -23,7 +23,7 @@ Note that the tool assumes a sane environment to run inside, including (but not 
 
 - Bash (tested with 4.2.46(2)-release from CentOS)
 - A set of commands available:
-   - Basic utils: `cp`, `mkdir`, `mount`, `dd`, `gzip`, `chroot`
+   - Basic utils: `cp`, `mkdir`, `mount`, `dd`, `gzip`, `chroot`, `sed`
    - GPT manipulation: `sgdisk`
    - LVM: `{pv,vg,lv}{create,display}`
    - Filesystems: `mkfs.xfs` (for root), `zpool` (for data storage), `xfsrestore` (for unpacking root images)
