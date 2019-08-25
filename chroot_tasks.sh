@@ -83,6 +83,9 @@ if (( ${#NORMAL_USERS[@]} )); then
     done
 fi
 
+# Update grub config.
+assert grub2-mkconfig -o /boot/efi/EFI/centos/grub.cfg
+
 # Register first-boot hooks.
 warn First-boot hooks not implemented
 

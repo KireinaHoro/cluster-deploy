@@ -8,6 +8,7 @@ This project aims to help ease deployment of compute clusters in which nodes are
 - Create `/etc/fstab`
 - Set root password (with provided `shadow`)
 - Add admin and normal users (with provided `username:shadow`)
+- Update GRUB config file
 
 ## Using the tool
 
